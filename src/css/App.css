@@ -1,0 +1,155 @@
+.App {
+  text-align: center;
+}
+.Header {
+  text-align: center;
+}
+.Game-Over {
+  margin-top: 10%;
+  text-align: center;
+  border: solid;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.Start {
+  text-align: center;
+}
+.BodyImg {
+  text-align: center;
+}
+.BodyTips {
+  text-align: center;
+}
+.Input {
+  text-align: center;
+  margin-top: 1em;
+}
+.Buttons {
+  text-align: center;
+  margin-top: 1em;
+}
+.Boton {
+  text-align: center;
+  margin-top: 1em;
+}
+
+#question {
+  text-align: center;
+  color: white;
+  margin-left: 15%;
+  margin-right: 15%;
+  background-color: green;
+  font-family: Georgia, serif;
+  margin-top: 0%;
+}
+#count {
+  font-size: 200;
+  margin-top: 10%;
+  background-color: red;
+  color: white;
+  width: 30em;
+  height: 10em;
+  font-family: Georgia, serif;
+  font-style: bold;
+}
+#mins {
+  font-style: bold;
+  margin-top: 2em;
+  color: green;
+  text-align: center;
+  margin-left: 42.5%;
+  margin-right:42.5%;
+  font-family: Georgia, serif;
+  text-shadow: #FC0 1px 0 10px;
+}
+
+#go {
+  text-align: center;
+  color: white;
+  background-color: red;
+  font-family: Georgia, serif;
+  margin-top: 0%;
+}
+#punt {
+  text-align: center;
+  color: white;
+  background-color: red;
+}
+
+#img {
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+.Pistas {
+  text-align: center;
+}
+#texto {
+  text-align: center;
+  width: 50%;
+  color: black;
+}
+#prev {
+  width: 8em;
+  height: 2em;
+  background-color: red;
+  color: white;
+  border-color: red;
+  font-family: Georgia, serif;
+}
+#next {
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 8em;
+  height: 2em;
+  background-color: green;
+  color: white;
+  border-color: green;
+  font-family: Georgia, serif;
+}
+#submit {
+  margin-right: 2%;
+  width: 8em;
+  height: 2em;
+  background-color: blue;
+  color: white;
+  border-color: blue;
+  font-family: Georgia, serif;
+}
+#restart {
+  margin-right: 2%;
+  width: 8em;
+  height: 2em;
+  background-color: black;
+  color: white;
+  border-color: grey;
+  font-family: Georgia, serif;
+}
+#reset {
+  margin-right: 2%;
+  width: 8em;
+  height: 2em;
+  background-color: black;
+  color: white;
+  border-color: grey;
+  font-family: Georgia, serif;
+}
+
+#textoscore {
+  text-align: center;
+  color: green;
+  font-style: italic;
+  font-family: Georgia, serif;
+  text-shadow: #FC0 1px 0 10px;
+}
+
+#tips {
+  margin-top: 1em;
+  background-color: grey;
+  color: black;
+}
+#imgButt {
+  margin-top: 1em;
+  background-color: grey;
+  color: black;
+}
