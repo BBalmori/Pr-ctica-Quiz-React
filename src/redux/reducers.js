@@ -86,7 +86,8 @@ function questions(state = [], action = {}) {
         return {...question, userAnswer: action.load.index === i ? action.load.answer : question.userAnswer}
       })
     case INIT_QUESTION:
-    return Object.assign({}, state, {questions: action.questions})
+    state = action.json;
+    return state;
     default:
       return state;
   }

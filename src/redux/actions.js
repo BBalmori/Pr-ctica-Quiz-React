@@ -23,11 +23,7 @@ export function restart() {
   return {type: 'RESTART'};
 }
 export function initQuestions(json) {
-  return {
-    type: 'INIT_QUESTION',
-    questions: json.data.children.map(child => child.data),
-    aux: Date.now()
-  };
+  return {type: 'INIT_QUESTION',json: json};
 }
 export function setImg(img) {
   return {type: 'IMG', img};

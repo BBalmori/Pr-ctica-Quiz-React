@@ -72,7 +72,27 @@ class App extends Component {
   componentDidMount() {
     let timeLeftVar = this.secondsToTime(this.state.seconds);
     this.setState({ time: timeLeftVar });
+    let url = "https://quiz2019.herokuapp.com/api/quizzes/random10wa?token=5effb23b240e1ed4485d";
+    let xhr = new XMLHttpRequest(); // the request
+    xhr.open("GET", url, true); // true makes the request asynchronous
+    xhr.onreadystatechange = function() {
+    // es la funcion de retrollamada que sera ejecutada (invocada) cuando cambie
+    // el valor de la propiedad readyState
+        let status;
+        let data;
+        if(xhr.readyState === 4) {// readyState == XMLHttpResquest.DONE
+            status = xhr.status;
+            if (xhr.status === 200) {
+                data = JSON.parse(xhr.responseText);
+                this.props.dispatch(initQuestions(data));
+            } else{
+                console.error(xhr.statusText);
+            }
+        }
+    }.bind(this);
+    xhr.send();
   }
+
   startTimer() {
     if (this.timer === 0) {
      this.timer = setInterval(this.countDown, 1000);
