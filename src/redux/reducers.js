@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { QUESTION_ANSWER, NEXT_QUESTION, PREV_QUESTION, SUBMIT, RESTART, IMG, INIT_QUESTION, START} from './actions'
+import { QUESTION_ANSWER, NEXT_QUESTION, PREV_QUESTION, SUBMIT, RESTART, IMG, INIT_QUESTION, START, RESET} from './actions'
 
 function start(state = false, action = {}) {
   switch (action.type) {
@@ -36,8 +36,6 @@ function score(state = 0, action = {}) {
       }
       state = count;
       return state;
-
-
     case RESTART:
       state = 0;
       return state;
@@ -51,6 +49,9 @@ function finished(state = false, action = {}) {
       state = true;
       return state;
     case RESTART:
+      state = false;
+      return state;
+    case RESET:
       state = false;
       return state;
     default:
@@ -107,6 +108,20 @@ function img(state = true, action = {}) {
       return state;
   }
 }
+
+/*function reset(state = false, action = {}) {
+  switch (action.type) {
+    case RESET:
+      if (action.reset === false) {
+        state = true;
+        return state;
+      } else {
+        return state;
+      }
+    default:
+      return state;
+  }
+}*/
 
 const GlobalState = (combineReducers({
   start,

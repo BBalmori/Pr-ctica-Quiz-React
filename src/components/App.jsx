@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {questionAnswer, nextQuestion, prevQuestion, submit, restart, initQuestions, setImg, setStart} from '../redux/actions.js';
+import {questionAnswer, nextQuestion, prevQuestion, submit, restart, initQuestions, setImg, setStart, setReset} from '../redux/actions.js';
 import Header from './Header.jsx';
 import Botones from './Botones.jsx'
 import Body from './Body.jsx'
@@ -18,6 +18,7 @@ class App extends Component {
     this.appNextClick = this.appNextClick.bind(this);
     this.appSubmitClick = this.appSubmitClick.bind(this);
     this.appRestartClick = this.appRestartClick.bind(this);
+    this.appResetClick = this.appResetClick.bind(this);
     this.appTips = this.appTips.bind(this);
     this.appImg = this.appImg.bind(this);
     this.appStartClick = this.appStartClick.bind(this);
@@ -26,6 +27,8 @@ class App extends Component {
     this.startTimer = this.startTimer.bind(this);
     this.countDown = this.countDown.bind(this);
   }
+
+  //botones
   appPrevClick() {
     this.props.dispatch(prevQuestion(this.props.currentQuestion, this.props.questions.length));
   }
@@ -37,11 +40,12 @@ class App extends Component {
   }
   appRestartClick() {
     this.props.dispatch(restart());
-    this.setState({
-     time: {},
-     seconds: 30,
-    });
+    this.setState({time: {}, seconds: 30,});
     this.timer = 0;
+  }
+  appResetClick() {
+    this.props.dispatch(setReset());
+    this.componentDidMount();
   }
   appTips() {
     this.img = false;
@@ -55,20 +59,6 @@ class App extends Component {
     this.props.dispatch(setStart(this.start));
   }
 
-//countdown
-  secondsToTime(secs){
-    let hours = Math.floor(secs/(60 * 60));
-    let divisor_for_minutes = secs % (60 * 60);
-    let minutes = Math.floor(divisor_for_minutes/60);
-    let divisor_for_seconds = divisor_for_minutes % 60;
-    let seconds = Math.ceil(divisor_for_seconds);
-    let obj = {
-     "h": hours,
-     "m": minutes,
-     "s": seconds
-    };
-    return obj;
-  }
   componentDidMount() {
     let timeLeftVar = this.secondsToTime(this.state.seconds);
     this.setState({ time: timeLeftVar });
@@ -93,6 +83,20 @@ class App extends Component {
     xhr.send();
   }
 
+//countdown
+  secondsToTime(secs){
+    let hours = Math.floor(secs/(60 * 60));
+    let divisor_for_minutes = secs % (60 * 60);
+    let minutes = Math.floor(divisor_for_minutes/60);
+    let divisor_for_seconds = divisor_for_minutes % 60;
+    let seconds = Math.ceil(divisor_for_seconds);
+    let obj = {
+     "h": hours,
+     "m": minutes,
+     "s": seconds
+    };
+    return obj;
+  }
   startTimer() {
     if (this.timer === 0) {
      this.timer = setInterval(this.countDown, 1000);
@@ -137,7 +141,7 @@ class App extends Component {
     } else {
       return (
       <div>
-        <GameOver score={this.props.score} appRestartClick={this.appRestartClick}/>
+        <GameOver score={this.props.score} appRestartClick={this.appRestartClick} appResetClick={this.appResetClick}/>
       </div>
       );
     }

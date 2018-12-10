@@ -6,6 +6,7 @@ export const RESTART = 'RESTART';
 export const IMG = 'IMG';
 export const INIT_QUESTION = 'INIT_QUESTION';
 export const START = 'START';
+export const RESET = 'RESET';
 
 export function questionAnswer(index, answer) {
   return {type: 'QUESTION_ANSWER', load: {index, answer}};
@@ -30,4 +31,7 @@ export function setImg(img) {
 }
 export function setStart(start) {
   return {type: 'START', start};
+}
+export function setReset() {
+  return {type: 'RESET'};
 }

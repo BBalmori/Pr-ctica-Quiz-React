@@ -15,7 +15,7 @@ export default class ReduxProvider extends React.Component {
       finished: false,
       currentQuestion: 0,
       questions: [...questions],
-      img: true};
+      img: true,};
     this.store = this.configureStore();
   }
 
